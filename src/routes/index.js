@@ -1,8 +1,9 @@
 const express = require('express');
-const routerName = require('./user.router');
+const routerUser = require('./user.router');
+const routerCategory = require('./category.router');
 const router = express.Router();
 
 // colocar las rutas aquí
-router.use('/users',routerName)
-
+router.use('/users',routerUser)
+router.use('/categories', routerCategory)
 module.exports = router;
