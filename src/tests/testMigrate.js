@@ -5,7 +5,7 @@ require('../models')
 const testMigrate = async () => {
 
     try {
-        await sequelize.sync() //{ force: true }
+        await sequelize.sync({ force: true }) //{ force: true }
         console.log('DB reset ✅');
         await userCreate()
         process.exit()
