@@ -5,19 +5,21 @@ const BASE_URL = '/api/v1/categories'
 
 let TOKEN
 let categoryId
-
+console.log(TOKEN)
 //hook de inicio de sesion
 beforeAll(async () => {
   const user = {
-    email: "yoneison@gmail.com",
-    password: "yoneison1234"
+    email: 'yoneison@gmail.com',
+    password: 'yoneison1234'
   }
 
   const res = await request(app)
     .post('/api/v1/users/login')
     .send(user)
 
-  TOKEN = res.body.token
+  console.log('Login response:', res.status, res.body);
+
+  TOKEN = res.body.token;
 })
 
 test("POST 'BASE_URL', should return statusCode 201, and res.body.name === category.name //🔐", async () => {
@@ -31,8 +33,9 @@ test("POST 'BASE_URL', should return statusCode 201, and res.body.name === categ
     .send(category)
     .set("Authorization", `Bearer ${TOKEN}`)
 
+    console.log(res.body)
   categoryId = res.body.id
-
+    
   expect(res.status).toBe(201)
   expect(res.body).toBeDefined()
   expect(res.body.name).toBe(category.name)

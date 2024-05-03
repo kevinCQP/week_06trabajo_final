@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
 
-const modelProducts = sequelize.define('products', {
+const modelProduct = sequelize.define('product', {
     title: {
         type: DataTypes.STRING,
         allowNull: false
@@ -18,4 +18,4 @@ const modelProducts = sequelize.define('products', {
     
 });
 
-module.exports = modelProducts;
+module.exports = modelProduct;

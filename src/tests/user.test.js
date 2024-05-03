@@ -9,7 +9,7 @@ let userId
 beforeAll(async () => {
 
   const user = {
-    email: "yoneison@gmail.com",
+    email: "yoneison1234@gmail.com",
     password: "yoneison1234"
   }
 
